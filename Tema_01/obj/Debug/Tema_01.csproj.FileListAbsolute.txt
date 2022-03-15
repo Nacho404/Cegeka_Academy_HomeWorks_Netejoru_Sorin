@@ -1,0 +1,7 @@
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\bin\Debug\Tema_01.exe.config
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\bin\Debug\Tema_01.exe
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\bin\Debug\Tema_01.pdb
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\obj\Debug\Tema_01.csprojAssemblyReference.cache
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\obj\Debug\Tema_01.csproj.CoreCompileInputs.cache
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\obj\Debug\Tema_01.exe
+D:\Cegeka Academy\Teme\Tema[01] - [C# Advanced]\Tema_01\obj\Debug\Tema_01.pdb

@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net5.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.PublishSingleFile = 
+build_property.IncludeAllContentForSelfExtract = 
+build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = HomeWork_02_Web_Services
+build_property.ProjectDir = D:\Cegeka Academy\Teme\Tema[02] - [Web Services]\HomeWork_02_Web_Services\HomeWork_02_Web_Services\
