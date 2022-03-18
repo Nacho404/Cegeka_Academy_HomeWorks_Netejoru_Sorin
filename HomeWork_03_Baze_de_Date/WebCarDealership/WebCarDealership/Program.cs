@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using CarDealership.Data;
 using Microsoft.Extensions.DependencyInjection;
 using WebCarDealership;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+
 
 namespace CarDealership
 {
@@ -50,11 +49,6 @@ namespace CarDealership
             }
         }
 
-        JsonSerializerOptions options = new()
-        {
-            ReferenceHandler = ReferenceHandler.IgnoreCycles,
-            WriteIndented = true
-        };
-
+       
     }
 }
