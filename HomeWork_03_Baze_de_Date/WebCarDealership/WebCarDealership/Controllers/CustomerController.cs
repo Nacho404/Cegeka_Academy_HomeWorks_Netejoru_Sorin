@@ -18,17 +18,32 @@ namespace WebCarDealership.Controllers
         }
         
 
-        [HttpGet]
+        [HttpGet("select-all-customers")]
         public async Task<IActionResult> Get()
         {
             var customers = await _dbContext.Customers.ToListAsync();
             return Ok(customers);
         }
 
-        
+
+        [HttpGet("select-customer-by-id/{customerId}")]
+        public async Task<IActionResult> GetById(int customerId)
+        {
+            var customer = await _dbContext.Customers.FirstOrDefaultAsync(x => x.Id == customerId);
+
+            if (customer != null)
+            {
+                return Ok(customer);
+            } else
+            {
+                return NotFound("Customer ID not found in 'Customers' table");
+            }
+        }
 
 
-        [HttpPost]
+
+
+        [HttpPost("create-customer")]
         public async Task<IActionResult> Post(CustomerRequestModel model)
         {
 

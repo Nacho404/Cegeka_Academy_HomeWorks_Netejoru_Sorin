@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
 
 namespace CarDealership.Data.Models
 {
@@ -23,5 +25,7 @@ namespace CarDealership.Data.Models
         public Customer Customer { get; set; }
 
         public CarOffer CarOffer { get; set; }
+
+
     }
 }

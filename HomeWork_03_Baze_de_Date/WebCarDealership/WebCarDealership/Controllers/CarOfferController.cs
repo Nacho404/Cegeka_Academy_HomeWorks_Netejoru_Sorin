@@ -26,7 +26,23 @@ namespace CarDealership.Controllers
             return Ok(offers);
         }
 
-        [HttpPost]
+        [HttpGet("select-carOffer-by-id/{carOfferId}")]
+
+        public async Task<IActionResult> GetById(int carOfferId)
+        {
+            var offer = await _dbContext.CarOffers.FirstOrDefaultAsync(x => x.Id == carOfferId);
+
+            if(offer != null)
+            {
+                return Ok(offer);
+            } else
+            {
+                return NotFound("CarOffer ID not found in 'CarOffers' table");
+
+            }
+        }
+
+        [HttpPost("create-carOffer")]
         public async Task<IActionResult> Post([FromBody] CarOfferRequestModel model)
         {
             if (!ModelState.IsValid)
@@ -47,6 +63,57 @@ namespace CarDealership.Controllers
             await _dbContext.SaveChangesAsync();
 
             return Created(Request.GetDisplayUrl(), dbModel);
+        }
+
+
+        [HttpPut("update-carOffer-by-id/{carOfferId}")]
+        public async Task<IActionResult> Put(int carOfferId, CarOfferRequestModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var offer = _dbContext.CarOffers.FirstOrDefault(x => x.Id == carOfferId);
+
+            if (offer != null)
+            {
+                offer.Make = model.Make;
+                offer.Model = model.Model;
+                offer.AvailableStock = model.AvailableStock;
+                offer.UnitPrice = model.UnitPrice;
+
+
+                await _dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound("CarOffer ID not found in 'CarOffers' table");
+            }
+
+
+            return Ok(offer);
+        }
+
+
+
+        [HttpDelete("delete-carOffer-by-id/{carOfferId}")]
+        public async Task<IActionResult> Delete(int carOfferId)
+        {
+            var offer = _dbContext.CarOffers.FirstOrDefault(x => x.Id == carOfferId);
+
+            if (offer != null)
+            {
+                _dbContext.CarOffers.Remove(offer);
+                await _dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound("CarOffer ID not found in 'CarOffers' table");
+            }
+
+            return Ok(offer);
+
         }
     }
 }

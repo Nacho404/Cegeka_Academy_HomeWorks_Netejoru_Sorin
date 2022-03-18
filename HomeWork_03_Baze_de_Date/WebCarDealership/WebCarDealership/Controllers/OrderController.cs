@@ -1,4 +1,5 @@
 ﻿using CarDealership.Data.Models;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebCarDealership.Requests;
@@ -14,6 +15,20 @@ namespace WebCarDealership.Controllers
         public OrderController(DealershipDbContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        [HttpGet("select-order-by-id/{orderId}")]
+        public async Task<IActionResult> Get(int orderId)
+        {
+            var offer = await _dbContext.Orders.FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if(offer != null)
+            {
+                return Ok(offer);
+            } else
+            {
+                return NotFound("Order Id not found in 'Orders' table");
+            }
         }
 
         [HttpPost]
@@ -49,10 +64,12 @@ namespace WebCarDealership.Controllers
             };
             _dbContext.Orders.Add(dbOrder);
 
-            int numberOfRecordsAffected = await _dbContext.SaveChangesAsync();
-            if (numberOfRecordsAffected == 0)
-            {
-            }
+            await _dbContext.SaveChangesAsync();
+
+            //int numberOfRecordsAffected = 
+            //if (numberOfRecordsAffected == 0)
+            //{
+            //}
 
             return Ok(dbOrder);
         }
