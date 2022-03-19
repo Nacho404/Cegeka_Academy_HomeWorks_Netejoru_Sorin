@@ -1,6 +1,7 @@
 ﻿using CarDealership.Data.Models;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using WebCarDealership.Requests;
 
@@ -17,21 +18,43 @@ namespace WebCarDealership.Controllers
             _dbContext = dbContext;
         }
 
-        [HttpGet("select-order-by-id/{orderId}")]
-        public async Task<IActionResult> Get(int orderId)
+        [HttpGet("select-all-orders")]
+        public async Task<IActionResult> Get()
         {
-            var offer = await _dbContext.Orders.FirstOrDefaultAsync(x => x.Id == orderId);
+            var orders = await _dbContext.Orders.ToListAsync();
 
-            if(offer != null)
+            return Ok(orders);
+        }
+
+        [HttpGet("select-order-by-id/{orderId}")]
+        public async Task<IActionResult> GetById(int orderId)
+        {
+            var order = await _dbContext.Orders.FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if(order != null)
             {
-                return Ok(offer);
+                return Ok(order);
             } else
             {
                 return NotFound("Order Id not found in 'Orders' table");
             }
         }
 
-        [HttpPost]
+        [HttpGet("select-all-orders-by-customerId/{customerId}")]
+        public async Task<IActionResult> GetByCustomerId(int customerId)
+        {
+            var queryOrders = await _dbContext.Orders
+                .Where(x => x.CustomerId == customerId)
+                .ToListAsync();
+            if(queryOrders.Count == 0)
+            {
+                return NotFound("Customer ID not found in 'Orders' table");
+            }
+
+            return Ok(queryOrders);
+        }
+
+        [HttpPost("create-order")]
         public async Task<IActionResult> Post(OrderRequestModel model)
         {
             if (!ModelState.IsValid)
