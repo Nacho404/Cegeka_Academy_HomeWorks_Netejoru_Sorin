@@ -22,6 +22,10 @@ namespace WebCarDealership
             modelBuilder.Entity<Customer>()
                 .HasIndex(c => c.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<Invoice>()
+                .HasIndex(c => c.InvoiceNumber)
+                .IsUnique();
         }
 
         public DbSet<CarOffer> CarOffers { get; set; }
@@ -30,8 +34,7 @@ namespace WebCarDealership
 
         public DbSet<Order> Orders { get; set; }
 
-
-
+        public DbSet<Invoice> Invoices { get; set; }
 
 
 

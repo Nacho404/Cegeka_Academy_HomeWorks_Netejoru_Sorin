@@ -77,10 +77,20 @@ namespace WebCarDealership.Controllers
 
             offer.AvailableStock -= model.Quantity;
 
+            var queryInvoices = await _dbContext.Invoices
+                .Where(x => x.Id == model.InvoiceId)
+                .FirstOrDefaultAsync();
+
+            if(queryInvoices != null)
+            {
+                queryInvoices.Amount += (model.Quantity * offer.UnitPrice);
+            }
+
             var dbOrder = new Order()
             {
                 CarOfferId = model.CarOfferId,
                 CustomerId = model.CustomerId,
+                InvoiceId = model.InvoiceId,
                 Date = DateTime.UtcNow,
                 Quantity = model.Quantity,
                 OrderAmount = model.Quantity * offer.UnitPrice

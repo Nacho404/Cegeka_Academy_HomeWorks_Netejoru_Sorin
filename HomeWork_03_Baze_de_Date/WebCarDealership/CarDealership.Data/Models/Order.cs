@@ -17,6 +17,8 @@ namespace CarDealership.Data.Models
 
         public int CarOfferId { get; set; }
 
+        public int InvoiceId { get; set; }
+
         public DateTime Date { get; set; }
 
         public int Quantity { get; set; }
@@ -27,6 +29,7 @@ namespace CarDealership.Data.Models
 
         public CarOffer CarOffer { get; set; }
 
+        public Invoice Invoice { get; set; }
 
     }
 }
