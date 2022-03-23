@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { postCar } from "../common/api.service";
 import { CarModel } from "../models/car.model";
 
@@ -52,7 +52,7 @@ function NewCar() {
                     <label className="form-label">Image</label>
                     <input type="text" className="form-control" placeholder="Image" onChange={ev => setImage(ev.target.value)}/>
                 </div>
-                <Link to='/caroffers'><a href="#" className="btn btn-primary" onClick={() => handleClick()}>Save</a></Link>
+                <a href="#" className="btn btn-primary" onClick={() => handleClick()}>Save</a>
             </div>
         </>);
 }

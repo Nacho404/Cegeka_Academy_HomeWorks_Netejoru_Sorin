@@ -7,12 +7,11 @@ interface TProps {
 
 function Customer(props: TProps){
     return (
-        <tr>
+        <>
             <td>{props.customer.name}</td>
             <td>{props.customer.email}</td>
-        </tr>
+        </>
     )
-
 }
 
 export default Customer;

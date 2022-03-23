@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { getCars } from "../common/api.service";
 import { CarModel } from "../models/car.model";
 import Car from "./Car";
@@ -19,7 +19,7 @@ function CarOffers() {
         <h2>All cars</h2>
         <div></div>
         <div style={{display:'flex', flexWrap:'wrap'}}>
-            {cars.map(c => <Car car={c} />)}
+            {cars.map(c => <div key={c.id}><Car car={c} /></div> )}
         </div>
         <div>
             <Link to='/newcar'><button type="button" className="btn btn-primary" style={{position: 'fixed', bottom: '50px', right:"10px"}}>Add car</button></Link>

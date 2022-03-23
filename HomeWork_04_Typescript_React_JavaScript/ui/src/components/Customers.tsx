@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { getCustomers } from "../common/api.service";
 import { CustomerModel } from "../models/customer.model";
 import Customer from "./WirteCustomerInTable";
@@ -9,7 +9,7 @@ function Customers() {
 
     useEffect(()=>{
         getCustomers().then(c => setCustomers(c));
-    })
+    },[])
 
     return (
         <div>
@@ -24,12 +24,15 @@ function Customers() {
                         </tr>
                     </thead>
                     <tbody>
-                    {customers.map(c => <Customer customer={c}/>)}
+                    {customers.map(c => <tr key={c.id}><Customer customer={c}/></tr> )}
                     </tbody>
                 </table>
             </div>
             <div>
-            <Link to='/newcustomer'><button type="button" className="btn btn-primary" style={{position: 'fixed', bottom: '50px', right:"10px"}}>Add customer</button></Link>           </div>
+                <Link to='/newcustomer'>
+                <button type="button" className="btn btn-primary" style={{position: 'fixed', bottom: '50px', right:"10px"}}>Add customer</button>
+                </Link>
+            </div>
         </div>
 
     );

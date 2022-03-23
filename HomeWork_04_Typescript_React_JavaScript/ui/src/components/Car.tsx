@@ -6,7 +6,7 @@ interface TProps{
 
 function Car(props: TProps){
     const { car } = props;
-   
+    
     const discountPrice = car.unitPrice * (1-car.discountPercentage);
     const hasDiscount = car.discountPercentage > 0;
 
