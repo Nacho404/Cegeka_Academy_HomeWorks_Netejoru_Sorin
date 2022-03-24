@@ -12,7 +12,6 @@ function NewCustomer(){
             name,
             email
         };
-
         postCustomer(newCustomer);
     }
 
@@ -28,7 +27,7 @@ function NewCustomer(){
                     <label className="form-label">Email</label>
                     <input type="text" className="form-control" placeholder="Email" onChange={ev => setEmail(ev.target.value)}/>
                 </div>
-                <Link to='/customers'><a href="#" className="btn btn-primary" onClick={() => handleClick()}>Save</a></Link>
+                <Link to='/customers'><button type="button" className="btn btn-primary" onClick={() => handleClick()}>Save</button></Link>
             </div>
         </>
     )

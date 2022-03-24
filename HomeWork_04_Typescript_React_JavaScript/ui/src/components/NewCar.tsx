@@ -52,7 +52,7 @@ function NewCar() {
                     <label className="form-label">Image</label>
                     <input type="text" className="form-control" placeholder="Image" onChange={ev => setImage(ev.target.value)}/>
                 </div>
-                <a href="#" className="btn btn-primary" onClick={() => handleClick()}>Save</a>
+                <Link to='/caroffers'><button type="button" className="btn btn-primary" onClick={() => handleClick()}>Save</button></Link>
             </div>
         </>);
 }
