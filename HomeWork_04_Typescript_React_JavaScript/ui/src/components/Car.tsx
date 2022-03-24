@@ -1,7 +1,13 @@
+import ReactDOM from "react-dom";
 import { CarModel } from "../models/car.model";
 
 interface TProps{
     car: CarModel;
+}
+
+function handleBuyBtn(){
+    // document.getElementById("buyMenuPopUp").style.display = "block";
+
 }
 
 function Car(props: TProps){
@@ -34,7 +40,7 @@ function Car(props: TProps){
                         <p className="card-text" style={{color:'red', fontWeight:'bold'}}>{formatedDiscountPrice}</p>
                     </>
                 }
-                <a href="#" className="btn btn-primary">Buy</a>
+                <button type="button" className="btn btn-primary" onClick={() => handleBuyBtn()} data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
             </div>
         </div>
     )
