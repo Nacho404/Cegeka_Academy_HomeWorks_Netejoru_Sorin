@@ -1,5 +1,6 @@
 import { CarModel } from "../models/car.model";
 import { CustomerModel } from "../models/customer.model";
+import { OrderModel } from "../models/order.model";
 
 export function getCars(): Promise<CarModel[]> {
     return fetch('https://localhost:7198/CarOffer')
@@ -29,5 +30,16 @@ export function postCustomer(customer: CustomerModel){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(customer)
+    })
+}
+
+
+export function postOrder(order: OrderModel){
+    fetch('https://localhost:7198/Order/create-order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(order)
     })
 }

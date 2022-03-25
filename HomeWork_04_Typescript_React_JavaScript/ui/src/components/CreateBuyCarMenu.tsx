@@ -1,30 +1,45 @@
+import { randomInt } from "crypto";
+import { useEffect, useState } from "react";
+import { getCars, getCustomers } from "../common/api.service";
+import { CarModel } from "../models/car.model";
+import { CustomerModel } from "../models/customer.model";
 
 function CreateBuyCarMenu() {
 
+    const [cars, setCars] = useState<CarModel[]>([]);
+
+    useEffect(()=>{
+        getCars().then(c => setCars(c));
+    },[])
+
+    const [customers, setCustomers] = useState<CustomerModel[]>([]);
+
+    useEffect(()=>{
+        getCustomers().then(c => setCustomers(c));
+    },[])
+
+    
 
     return(
         <div style={{display:'grid', gridGap: '40px'}}>
-            <select className="form-select" aria-label="Default select example">
+            <select id='customersSelect' className="form-select" aria-label="Default select example">
                 <option defaultValue='Customer Name'>Customer Name</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {customers.map((customer) => {
+                    return <option key={customer.id} value={customer.id}>{customer.name}</option>
+                } )}
+                
             </select>
 
-            <select className="form-select" aria-label="Default select example">
+            <select id='carOffersSelect' className="form-select" aria-label="Default select example">
                 <option defaultValue='Car Model'>Car Model</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {cars.map((car) => {
+                    return <option key={car.id} value={car.id}>{car.make + ' ' + car.model}</option>
+                } )}
             </select>
 
 
-            <select className="form-select" aria-label="Default select example">
-                <option defaultValue='Quantity'>Quantity</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <input id='quantitySelect' type="number" className="form-control" placeholder="Quantity" min='1' max='100'/>
+
         </div>
     )
 }

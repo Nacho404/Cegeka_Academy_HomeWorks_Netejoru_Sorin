@@ -5,10 +5,6 @@ interface TProps{
     car: CarModel;
 }
 
-function handleBuyBtn(){
-    // document.getElementById("buyMenuPopUp").style.display = "block";
-
-}
 
 function Car(props: TProps){
     const { car } = props;
@@ -40,7 +36,7 @@ function Car(props: TProps){
                         <p className="card-text" style={{color:'red', fontWeight:'bold'}}>{formatedDiscountPrice}</p>
                     </>
                 }
-                <button type="button" className="btn btn-primary" onClick={() => handleBuyBtn()} data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
+                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buy</button>
             </div>
         </div>
     )

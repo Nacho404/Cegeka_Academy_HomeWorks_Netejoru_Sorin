@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { getCars } from "../common/api.service";
+import { getCars, postOrder } from "../common/api.service";
 import { CarModel } from "../models/car.model";
+import { OrderModel } from "../models/order.model";
 import Car from "./Car";
 import CreateBuyCarMenu from "./CreateBuyCarMenu";
 
@@ -15,11 +16,30 @@ function CarOffers() {
         getCars().then(c => setCars(c));
     },[])
 
-    // const styleForBuyMenu = {
-    //     display: '',
-    //     margin: '100px',
 
-    // }
+    // functionality for 'CreateOrder Button'
+    async function CreateOrder(){
+        const customersFromSelect:any = document.getElementById('customersSelect');
+        const carOffersFromSelect:any = document.getElementById('carOffersSelect');
+        const quantityFromSelect:any = document.getElementById('quantitySelect');
+        console.log(customersFromSelect.selectedIndex);
+        console.log(carOffersFromSelect.selectedIndex);
+        console.log(quantityFromSelect.value);
+
+        const customerId = customersFromSelect.selectedIndex;
+        const carOfferId = carOffersFromSelect.selectedIndex;
+        const quantity = quantityFromSelect.value;
+
+
+        const order:OrderModel = {
+            customerId,
+            carOfferId,
+            quantity
+        };
+        postOrder(order);
+        console.log('order created');
+    }
+    // functionality for 'CreateOrder Button'
 
     return (
     <div>
@@ -44,7 +64,7 @@ function CarOffers() {
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" className="btn btn-primary">Create Order</button>
+                    <button id="createOrder" data-bs-dismiss="modal" type="button" className="btn btn-primary" onClick={() =>CreateOrder()}>Create Order</button>
                 </div>
                 </div>
             </div>
@@ -52,5 +72,7 @@ function CarOffers() {
         
     </div>);
 }
+
+
 
 export default CarOffers;
