@@ -41,5 +41,22 @@ export function postOrder(order: OrderModel){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(order)
+    }).then(async response => {
+        const createOrderError:any = document.getElementById('createOrderError');
+        await response.json();
+
+        if(!response.ok){
+            throw new Error("The quantity that you want is no more available!");
+        } else {
+            createOrderError.innerHTML = "The order has been placed!";
+            createOrderError.style.fontWeight = 'bold';
+            createOrderError.style.color = 'green';
+        }
+    })
+    .catch(error => {
+        const createOrderError:any = document.getElementById('createOrderError');
+        createOrderError.innerHTML = `${error}`;
+        createOrderError.style.fontWeight = 'bold';
+        createOrderError.style.color = 'red';
     })
 }

@@ -1,4 +1,3 @@
-import { randomInt } from "crypto";
 import { useEffect, useState } from "react";
 import { getCars, getCustomers } from "../common/api.service";
 import { CarModel } from "../models/car.model";
@@ -38,7 +37,7 @@ function CreateBuyCarMenu() {
             </select>
 
 
-            <input id='quantitySelect' type="number" className="form-control" placeholder="Quantity" min='1' max='100'/>
+            <input id='quantitySelect' type="number" className="form-control" placeholder="Quantity" min='1' max='100000000'/>
 
         </div>
     )

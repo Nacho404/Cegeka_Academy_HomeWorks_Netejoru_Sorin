@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getCars, postOrder } from "../common/api.service";
 import { CarModel } from "../models/car.model";
 import { OrderModel } from "../models/order.model";
@@ -18,18 +18,14 @@ function CarOffers() {
 
 
     // functionality for 'CreateOrder Button'
-    async function CreateOrder(){
+    function CreateOrder(){
         const customersFromSelect:any = document.getElementById('customersSelect');
         const carOffersFromSelect:any = document.getElementById('carOffersSelect');
         const quantityFromSelect:any = document.getElementById('quantitySelect');
-        console.log(customersFromSelect.selectedIndex);
-        console.log(carOffersFromSelect.selectedIndex);
-        console.log(quantityFromSelect.value);
 
         const customerId = customersFromSelect.selectedIndex;
         const carOfferId = carOffersFromSelect.selectedIndex;
         const quantity = quantityFromSelect.value;
-
 
         const order:OrderModel = {
             customerId,
@@ -37,9 +33,14 @@ function CarOffers() {
             quantity
         };
         postOrder(order);
-        console.log('order created');
     }
     // functionality for 'CreateOrder Button'
+
+
+    function deleteContentOfDivError(){
+        const createOrderError:any = document.getElementById('createOrderError');
+        createOrderError.innerHTML = '';
+    }
 
     return (
     <div>
@@ -57,14 +58,15 @@ function CarOffers() {
                 <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="staticBackdropLabel">Make a Order</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() =>deleteContentOfDivError()}></button>
                 </div>
                 <div className="modal-body">
+                    <div id="createOrderError" style={{marginBottom: '20px'}}></div>
                     <CreateBuyCarMenu />
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="createOrder" data-bs-dismiss="modal" type="button" className="btn btn-primary" onClick={() =>CreateOrder()}>Create Order</button>
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() =>deleteContentOfDivError()}>Close</button>
+                    <button id="createOrder" type="button" className="btn btn-primary" onClick={() =>CreateOrder()}>Create Order</button>
                 </div>
                 </div>
             </div>
