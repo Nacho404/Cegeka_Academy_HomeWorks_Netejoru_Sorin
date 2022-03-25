@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Route, useNavigate } from "react-router-dom";
 import { postCar } from "../common/api.service";
 import { CarModel } from "../models/car.model";
+import CarOffers from "./CarOffers";
 
 function NewCar() {
 
@@ -52,7 +53,7 @@ function NewCar() {
                     <label className="form-label">Image</label>
                     <input type="text" className="form-control" placeholder="Image" onChange={ev => setImage(ev.target.value)}/>
                 </div>
-                <Link to='/caroffers'><button type="button" className="btn btn-primary" onClick={() => handleClick()}>Save</button></Link>
+                <a href='/caroffers' className="btn btn-primary" onClick={() => handleClick()}>Save</a>
             </div>
         </>);
 }
