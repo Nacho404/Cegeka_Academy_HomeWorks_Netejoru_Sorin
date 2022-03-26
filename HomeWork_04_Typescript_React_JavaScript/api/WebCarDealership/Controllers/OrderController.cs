@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using WebCarDealership.Requests;
 
 namespace WebCarDealership.Controllers
@@ -89,6 +90,19 @@ namespace WebCarDealership.Controllers
             _dbContext.Orders.Add(dbOrder);
 
             await _dbContext.SaveChangesAsync();
+
+
+            var customer = await _dbContext.Customers.FirstOrDefaultAsync(x => x.Id == model.CustomerId);
+
+            if (customer == null)
+            {
+                return NotFound("Customer ID not found");
+
+            }
+            else
+            {
+                customer.Orders.Add(dbOrder);
+            }
 
             return Ok(dbOrder);
         }

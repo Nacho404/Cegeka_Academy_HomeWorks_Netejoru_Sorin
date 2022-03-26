@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarDealership.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebCarDealership.Requests
 {
@@ -9,5 +10,6 @@ namespace WebCarDealership.Requests
 
         [Required]
         public string Email { get; set; }
+
     }
 }
