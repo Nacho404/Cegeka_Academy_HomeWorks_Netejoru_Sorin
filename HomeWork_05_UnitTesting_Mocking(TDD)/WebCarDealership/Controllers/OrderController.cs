@@ -43,7 +43,8 @@ namespace WebCarDealership.Controllers
                 return NotFound("car offer not found");
             }
 
-            if (offer.AvailableStock <= model.Quantity)
+            // old if statement: if (offer.AvailableStock <= model.Quantity)
+            if (offer.AvailableStock < model.Quantity)
             {
                 return BadRequest("Not enough cars of this model are available in stock!");
             }

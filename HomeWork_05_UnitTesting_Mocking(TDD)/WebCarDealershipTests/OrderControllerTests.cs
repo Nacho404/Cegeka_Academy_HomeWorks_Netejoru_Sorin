@@ -97,10 +97,38 @@ namespace WebCarDealershipTests
         }
 
 
-        //[Fact]
-        //public async Task Given_When_Then()
-        //{
+        [Theory]
+        [InlineData(10)]
+        [InlineData(9)]
+        [InlineData(1)]
+        public async Task GivenQuantityLessOrEqualThenAvailableStock_WhenCallingPost_ThenTheResultIsNotBadRequest(int value)
+        {
 
-        //}
+            // Arrange
+            var offer = new CarOffer()
+            {
+                Id = 1,
+                Model = "Opel",
+                Make = "Astra H",
+                AvailableStock = 10,
+                UnitPrice = 2500
+
+            };
+            repoMock.Setup(repo => repo.GetCarOfferById(offer.Id)).ReturnsAsync(offer);
+
+            var requestModel = new OrderRequestModel()
+            {
+                CarOfferId = 1,
+                CustomerId = 10,
+                Quantity = value
+            };
+
+            // Act
+            var result = await controllerSut.Post(requestModel);
+
+            // Assert
+            result.Should().NotBeOfType<BadRequestObjectResult>();
+
+        }
     }
 }
