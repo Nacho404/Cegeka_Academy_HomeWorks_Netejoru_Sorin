@@ -41,6 +41,31 @@ namespace WebCarDealershipTests
             result.Should().BeOfType<NotFoundObjectResult>();
         }
 
+
+        [Fact]
+        public async Task GivenAValidCarOfferId_WhenCallingPost_ThenGetANotNullCarOfer()
+        {
+            // Arrange
+            var offer = new CarOffer()
+            {
+                Id = 1,
+                Model = "Opel",
+                Make = "Astra H",
+                AvailableStock = 10,
+                UnitPrice = 2500
+
+            };
+
+            repoMock.Setup(repo => repo.GetCarOfferById(offer.Id)).ReturnsAsync(offer);
+            var requestModel = new OrderRequestModel();
+
+            // Act
+            var result = await controllerSut.Post(requestModel);
+
+            // Assert
+            result.Should().NotBeNull();
+        }
+
         [Fact]
         public async Task GivenQuantityBiggerThenAvailableStock_WhenCallingPost_ThenGetBadRequest()
         {
@@ -55,7 +80,7 @@ namespace WebCarDealershipTests
                 UnitPrice = 2500
 
             };
-            repoMock.Setup(repo => repo.GetCarOfferById(It.IsAny<int>())).ReturnsAsync(offer);
+            repoMock.Setup(repo => repo.GetCarOfferById(offer.Id)).ReturnsAsync(offer);
 
             var requestModel = new OrderRequestModel()
             {
@@ -72,10 +97,10 @@ namespace WebCarDealershipTests
         }
 
 
-        [Fact]
-        public async Task Given_When_Then()
-        {
+        //[Fact]
+        //public async Task Given_When_Then()
+        //{
 
-        }
+        //}
     }
 }
