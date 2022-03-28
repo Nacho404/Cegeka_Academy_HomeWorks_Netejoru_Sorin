@@ -1,0 +1,14 @@
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.deps.json
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.runtimeconfig.json
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.dll
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.pdb
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.csproj.AssemblyReference.cache
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.AssemblyInfoInputs.cache
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.AssemblyInfo.cs
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.csproj.CoreCompileInputs.cache
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.dll
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\refint\CarDealership.Data.dll
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.pdb
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.genruntimeconfig.cache
+C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\ref\CarDealership.Data.dll
