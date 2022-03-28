@@ -12,3 +12,17 @@ C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealer
 C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.pdb
 C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.genruntimeconfig.cache
 C:\Users\40729\Desktop\WebCarDealership-master\WebCarDealership-master\CarDealership.Data\obj\Debug\net6.0\ref\CarDealership.Data.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.deps.json
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.runtimeconfig.json
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\bin\Debug\net6.0\CarDealership.Data.pdb
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.csproj.AssemblyReference.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.AssemblyInfoInputs.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.AssemblyInfo.cs
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.csproj.CoreCompileInputs.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\refint\CarDealership.Data.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.pdb
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\CarDealership.Data.genruntimeconfig.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_05_UnitTesting_Mocking(TDD)\CarDealership.Data\obj\Debug\net6.0\ref\CarDealership.Data.dll
