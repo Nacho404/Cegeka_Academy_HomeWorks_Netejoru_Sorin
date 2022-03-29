@@ -35,7 +35,7 @@ namespace RentalCars
                 double thisAmount = 0;
 
                 // determines the amount for each line
-                switch (each.Car.PriceCode)
+                switch (each.Car._priceCode)
                 {
                     case PriceCode.Regular:
                         thisAmount += pricePerDay * 2;
@@ -58,13 +58,13 @@ namespace RentalCars
                 }
 
                 frequentRenterPoints = 1;
-                if (each.Car.PriceCode == PriceCode.Premium
+                if (each.Car._priceCode == PriceCode.Premium
                     && each.DaysRented > 1)
                     frequentRenterPoints++;
 
                 each.Customer.FrequentRenterPoints += frequentRenterPoints;
 
-                r += each.Customer._customerName + "\t" + each.Car.Model + "\t" + each.DaysRented + "d \t" + thisAmount + " EUR\n";
+                r += each.Customer._customerName + "\t" + each.Car._model + "\t" + each.DaysRented + "d \t" + thisAmount + " EUR\n";
                 totalAmount += thisAmount;
             }
             r += "------------------------------\n";
