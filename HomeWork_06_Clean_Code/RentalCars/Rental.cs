@@ -2,15 +2,15 @@
 {
     public class Rental
     {
+        public Customer Customer;
+        public Car Car;
+        public int _daysRented;
+
         public Rental(Customer customer, Car car, int daysRented)
         {
             Customer = customer;
             Car = car;
-            DaysRented = daysRented;
+            _daysRented = daysRented;
         }
-
-        public Customer Customer { get; }
-        public Car Car { get; }
-        public int DaysRented { get; }
     }
 }

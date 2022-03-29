@@ -39,16 +39,16 @@ namespace RentalCars
                 {
                     case PriceCode.Regular:
                         thisAmount += pricePerDay * 2;
-                        if (each.DaysRented > 2)
-                            thisAmount += (each.DaysRented - 2) * pricePerDay * 0.75;
+                        if (each._daysRented > 2)
+                            thisAmount += (each._daysRented - 2) * pricePerDay * 0.75;
                         break;
                     case PriceCode.Premium:
-                        thisAmount += each.DaysRented * pricePerDay * 1.5;
+                        thisAmount += each._daysRented * pricePerDay * 1.5;
                         break;
                     case PriceCode.Mini:
                         thisAmount += pricePerDay * 3 * 0.75;
-                        if (each.DaysRented > 3)
-                            thisAmount += (each.DaysRented - 3) * pricePerDay * 0.5;
+                        if (each._daysRented > 3)
+                            thisAmount += (each._daysRented - 3) * pricePerDay * 0.5;
                         break;
                 }
 
@@ -59,12 +59,12 @@ namespace RentalCars
 
                 frequentRenterPoints = 1;
                 if (each.Car._priceCode == PriceCode.Premium
-                    && each.DaysRented > 1)
+                    && each._daysRented > 1)
                     frequentRenterPoints++;
 
                 each.Customer.FrequentRenterPoints += frequentRenterPoints;
 
-                r += each.Customer._customerName + "\t" + each.Car._model + "\t" + each.DaysRented + "d \t" + thisAmount + " EUR\n";
+                r += each.Customer._customerName + "\t" + each.Car._model + "\t" + each._daysRented + "d \t" + thisAmount + " EUR\n";
                 totalAmount += thisAmount;
             }
             r += "------------------------------\n";
