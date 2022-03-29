@@ -5,7 +5,7 @@ namespace RentalCars
 {
     public class RentalStore
     {
-        private readonly List<Rental> _rentals = new List<Rental>(); //lista de inchirieri
+        private readonly List<Rental> Rentals = new List<Rental>(); //lista de inchirieri
 
         private string _storeName;
 
@@ -17,7 +17,7 @@ namespace RentalCars
 
         public void AddRental(Rental rental)
         {
-            _rentals.Add(rental);
+            Rentals.Add(rental);
             rental.Customer.AddRental(rental);
         }
 
@@ -30,7 +30,7 @@ namespace RentalCars
             var r = "Rental Record for " + _storeName + "\n";
             r += "------------------------------\n";
 
-            foreach (var rental in _rentals)
+            foreach (var rental in Rentals)
             {
                 double thisAmount = 0;
 
