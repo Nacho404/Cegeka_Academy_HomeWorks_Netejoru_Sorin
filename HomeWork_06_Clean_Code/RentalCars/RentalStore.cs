@@ -51,7 +51,7 @@ namespace RentalCars
                         break;
                 }
 
-                if (rental.Customer.FrequentRenterPoints >= 5)
+                if (rental.Customer._frequentRenterPoints >= 5)
                 {
                     thisAmount = thisAmount * 0.95;
                 }
@@ -61,7 +61,7 @@ namespace RentalCars
                     && rental._daysRented > 1)
                     frequentRenterPoints++;
 
-                rental.Customer.FrequentRenterPoints += frequentRenterPoints;
+                rental.Customer._frequentRenterPoints += frequentRenterPoints;
 
                 r += rental.Customer._customerName + "\t" + rental.Car._model + "\t" + rental._daysRented + "d \t" + thisAmount + " EUR\n";
                 totalAmount += thisAmount;
