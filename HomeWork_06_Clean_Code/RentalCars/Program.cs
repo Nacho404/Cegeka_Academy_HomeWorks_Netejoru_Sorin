@@ -6,7 +6,7 @@ namespace RentalCars
     {
         static void Main(string[] args)
         {
-            RentalStore iasiRentalsStore = new RentalStore("Iasi Rentals");
+            Store iasiRentalsStore = new Store("Iasi Rentals");
 
             var ionPopescu = new Customer("Ion Popescu");
             var mihaiChirica = new Customer("Mihai Chirica");
