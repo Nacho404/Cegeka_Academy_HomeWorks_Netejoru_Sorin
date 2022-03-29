@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace RentalCars
 {
-    public class RentalStore
+    public class Store
     {
         private readonly List<Rental> Rentals = new List<Rental>(); //lista de inchirieri
 
         private string _storeName;
 
-        public RentalStore(string storeName)
+        public Store(string storeName)
         {
             _storeName = storeName;
         }
