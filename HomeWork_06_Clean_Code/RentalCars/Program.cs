@@ -6,22 +6,22 @@ namespace RentalCars
     {
         static void Main(string[] args)
         {
-            RentalStore store = new RentalStore("Iasi Rentals");
+            RentalStore iasiRentalsStore = new RentalStore("Iasi Rentals");
 
-            var customer1 = new Customer("Ion Popescu");
-            var customer2 = new Customer("Mihai Chirica");
-            var customer3 = new Customer("Gigi Becali");
+            var ionPopescu = new Customer("Ion Popescu");
+            var mihaiChirica = new Customer("Mihai Chirica");
+            var gigiBecali = new Customer("Gigi Becali");
 
-            store.AddRental(new Rental(customer1, new Car(PriceCode.Regular, "Ford Focus"), 2));
-            store.AddRental(new Rental(customer3, new Car(PriceCode.Regular, "Renault Clio"), 3));
-            store.AddRental(new Rental(customer1, new Car(PriceCode.Premium, "BMW 330i"), 1));
-            store.AddRental(new Rental(customer3, new Car(PriceCode.Premium, "Volvo XC90"), 3));
-            store.AddRental(new Rental(customer2, new Car(PriceCode.Mini, "Toyota Aygo"), 2));
-            store.AddRental(new Rental(customer1, new Car(PriceCode.Mini, "Hyundai i10"), 4));
-            store.AddRental(new Rental(customer3, new Car(PriceCode.Premium, "Volvo XC90"), 2));
-            store.AddRental(new Rental(customer3, new Car(PriceCode.Premium, "Mercedes E320"), 1));
+            iasiRentalsStore.AddRental(new Rental(ionPopescu, new Car(PriceCode.Regular, "Ford Focus"), 2));
+            iasiRentalsStore.AddRental(new Rental(gigiBecali, new Car(PriceCode.Regular, "Renault Clio"), 3));
+            iasiRentalsStore.AddRental(new Rental(ionPopescu, new Car(PriceCode.Premium, "BMW 330i"), 1));
+            iasiRentalsStore.AddRental(new Rental(gigiBecali, new Car(PriceCode.Premium, "Volvo XC90"), 3));
+            iasiRentalsStore.AddRental(new Rental(mihaiChirica, new Car(PriceCode.Mini, "Toyota Aygo"), 2));
+            iasiRentalsStore.AddRental(new Rental(ionPopescu, new Car(PriceCode.Mini, "Hyundai i10"), 4));
+            iasiRentalsStore.AddRental(new Rental(gigiBecali, new Car(PriceCode.Premium, "Volvo XC90"), 2));
+            iasiRentalsStore.AddRental(new Rental(gigiBecali, new Car(PriceCode.Premium, "Mercedes E320"), 1));
 
-            Console.WriteLine(store.Statement());
+            Console.WriteLine(iasiRentalsStore.Statement());
             Console.ReadKey();
 
         }
