@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Code_Clean\\RentalCars\\RentalCars.csproj",
+      "projectUniqueName": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Clean_Code\\RentalCars\\RentalCars.csproj",
       "projectName": "RentalCars",
-      "projectPath": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Code_Clean\\RentalCars\\RentalCars.csproj",
+      "projectPath": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Clean_Code\\RentalCars\\RentalCars.csproj",
       "packagesPath": "C:\\Users\\40729\\.nuget\\packages\\",
-      "outputPath": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Code_Clean\\RentalCars\\obj\\",
+      "outputPath": "D:\\Cegeka Academy\\HomeWorks\\HomeWork_06_Clean_Code\\RentalCars\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
