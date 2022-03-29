@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace RentalCars
 {
-    public class RentalCars
+    public class RentalStore
     {
         private readonly List<Rental> _rentals = new List<Rental>();
 
-        public RentalCars(string name)
+        public RentalStore(string name)
         {
             Name = name;
         }
