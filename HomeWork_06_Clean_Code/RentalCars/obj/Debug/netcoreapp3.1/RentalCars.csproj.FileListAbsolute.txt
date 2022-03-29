@@ -12,3 +12,17 @@ D:\Cegeka Academy\HomeWorks\HomeWork_06_Code_Clean\RentalCars\obj\Debug\netcorea
 D:\Cegeka Academy\HomeWorks\HomeWork_06_Code_Clean\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.dll
 D:\Cegeka Academy\HomeWorks\HomeWork_06_Code_Clean\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.pdb
 D:\Cegeka Academy\HomeWorks\HomeWork_06_Code_Clean\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.genruntimeconfig.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.exe
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.deps.json
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.runtimeconfig.json
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.runtimeconfig.dev.json
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\bin\Debug\netcoreapp3.1\RentalCars.pdb
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.csproj.AssemblyReference.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.AssemblyInfoInputs.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.AssemblyInfo.cs
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.csproj.CoreCompileInputs.cache
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.dll
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.pdb
+D:\Cegeka Academy\HomeWorks\HomeWork_06_Clean_Code\RentalCars\obj\Debug\netcoreapp3.1\RentalCars.genruntimeconfig.cache

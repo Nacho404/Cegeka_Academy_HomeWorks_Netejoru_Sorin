@@ -5,14 +5,15 @@ namespace RentalCars
 {
     public class RentalStore
     {
-        private readonly List<Rental> _rentals = new List<Rental>();
+        private readonly List<Rental> _rentals = new List<Rental>(); //lista de inchirieri
 
-        public RentalStore(string name)
+        private string _storeName;
+
+        public RentalStore(string storeName)
         {
-            Name = name;
+            _storeName = storeName;
         }
 
-        public string Name { get; }
 
         public void AddRental(Rental rental)
         {
@@ -26,7 +27,7 @@ namespace RentalCars
             double totalAmount = 0;
             var frequentRenterPoints = 0;
 
-            var r = "Rental Record for " + Name + "\n";
+            var r = "Rental Record for " + _storeName + "\n";
             r += "------------------------------\n";
 
             foreach (var each in _rentals)
@@ -63,7 +64,7 @@ namespace RentalCars
 
                 each.Customer.FrequentRenterPoints += frequentRenterPoints;
 
-                r += each.Customer.Name + "\t" + each.Car.Model + "\t" + each.DaysRented + "d \t" + thisAmount + " EUR\n";
+                r += each.Customer._customerName + "\t" + each.Car.Model + "\t" + each.DaysRented + "d \t" + thisAmount + " EUR\n";
                 totalAmount += thisAmount;
             }
             r += "------------------------------\n";
