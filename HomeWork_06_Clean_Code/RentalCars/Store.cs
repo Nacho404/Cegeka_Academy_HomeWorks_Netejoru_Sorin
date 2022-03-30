@@ -60,7 +60,6 @@ namespace RentalCars
                     && rental._daysRented > 1)
                 {
                     rental.Customer._frequentRenterPoints++;
-                    Console.WriteLine($"Customer: {rental.Customer._customerName} and the points are:  {rental.Customer._frequentRenterPoints} ");
                 }
 
                 rental.Customer._frequentRenterPoints ++;
