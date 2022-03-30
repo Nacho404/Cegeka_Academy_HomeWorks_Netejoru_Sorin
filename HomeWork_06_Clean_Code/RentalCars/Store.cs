@@ -24,7 +24,7 @@ namespace RentalCars
         {
             double pricePerDay = 20;// why is the price 20 euro for all car categories?
             double totalAmount = 0;
-            var frequentRenterPoints = 0;
+            var frequentRenterPoints = 0;// i dont need this variable
 
             var r = "Rental Record for " + _storeName + "\n";
             r += "------------------------------\n";
@@ -56,12 +56,14 @@ namespace RentalCars
                     thisAmount = thisAmount * 0.95;
                 }
 
-                frequentRenterPoints = 1;
                 if (rental.Car._priceCode == PriceCode.Premium
                     && rental._daysRented > 1)
-                    frequentRenterPoints++;
+                {
+                    rental.Customer._frequentRenterPoints++;
+                    Console.WriteLine($"Customer: {rental.Customer._customerName} and the points are:  {rental.Customer._frequentRenterPoints} ");
+                }
 
-                rental.Customer._frequentRenterPoints += frequentRenterPoints;
+                rental.Customer._frequentRenterPoints ++;
 
                 r += rental.Customer._customerName + "\t" + rental.Car._model + "\t" + rental._daysRented + "d \t" + thisAmount + " EUR\n";
                 totalAmount += thisAmount;
