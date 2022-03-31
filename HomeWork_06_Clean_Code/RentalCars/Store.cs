@@ -38,6 +38,13 @@ namespace RentalCars
             Customer customer = IdentifyCustomerByCNP(cnp);
             Car car = IdentifyCarByChassisSeries(chassisSeries);
 
+            if (customer.frequentRenterPoints >= 3 
+                && car.PriceModel._priceCode == "Luxury")
+            {
+                Rentals.Add(new Rental(customer, car, daysRented));
+                return;
+            }
+           
             Rentals.Add(new Rental(customer, car, daysRented));
         }
 

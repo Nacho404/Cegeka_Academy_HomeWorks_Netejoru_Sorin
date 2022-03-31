@@ -34,7 +34,19 @@ namespace RentalCars
             iasiRentalsStore.AddRental("CNP2960703337627", "Volvo1XA9D2DF9517", 2);
             iasiRentalsStore.AddRental("CNP2960703337627", "MercedesZP4VM0688", 1);
 
+            Store bucharestRentalsStore = new Store("Bucharest Rentals");
+
+            bucharestRentalsStore.AddCustomer("Gigi Becali", "CNP2960703337627");
+
+            bucharestRentalsStore.AddPriceModel("Luxury", 70);
+
+            bucharestRentalsStore.AddCar("Luxury", "Ford Focus", "FordGCF2YHE3V9971");
+
+            bucharestRentalsStore.AddRental("CNP2960703337627", "FordGCF2YHE3V9971", 10);
+
+
             Console.WriteLine(iasiRentalsStore.Statement());
+            Console.WriteLine(bucharestRentalsStore.Statement());
             Console.ReadKey();
         }
     }
