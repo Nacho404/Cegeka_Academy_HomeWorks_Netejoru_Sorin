@@ -36,17 +36,36 @@ namespace RentalCars
 
             Store bucharestRentalsStore = new Store("Bucharest Rentals");
 
-            bucharestRentalsStore.AddCustomer("Gigi Becali", "CNP2960703337627");
+            bucharestRentalsStore.AddCustomer("Sorin Netejoru", "Sorin6001004299856");
+            bucharestRentalsStore.AddCustomer("Enache Catalin", "Enache1880508511799");
+            bucharestRentalsStore.AddCustomer("Panait Valentin", "Panait2990302026576");
 
+            bucharestRentalsStore.AddPriceModel("Mini", 25);
+            bucharestRentalsStore.AddPriceModel("Regular", 30);
+            bucharestRentalsStore.AddPriceModel("Premium", 40);
             bucharestRentalsStore.AddPriceModel("Luxury", 70);
 
-            bucharestRentalsStore.AddCar("Luxury", "Ford Focus", "FordGCF2YHE3V9971");
+            bucharestRentalsStore.AddCar("Luxury", "Range Rover Evoque", "RangeRUEL9XZC4272");
+            bucharestRentalsStore.AddCar("Regular", "Opel Astra-H", "Opel2ZKZ44VU61304");
+            bucharestRentalsStore.AddCar("Regular", "WV Arteon", "WvA62DM4M7EZM1754");
+            bucharestRentalsStore.AddCar("Luxury", "Lamborghini", "LamboM4CPGNN03836");
+            bucharestRentalsStore.AddCar("Mini", "Peugout 107", "PeugoutST5V0N4537");
+            bucharestRentalsStore.AddCar("Mini", "Mini Cooper", "MiniCXB5M7FUT4200");
+            bucharestRentalsStore.AddCar("Premium", "Mitsubishi Lancer", "MitsubishiL6T6223");
+            bucharestRentalsStore.AddCar("Premium", "Mitsubishi", "MitsubishiEL27525");
 
-            bucharestRentalsStore.AddRental("CNP2960703337627", "FordGCF2YHE3V9971", 10);
 
 
-            Console.WriteLine(iasiRentalsStore.Statement());
-            Console.WriteLine(bucharestRentalsStore.Statement());
+            bucharestRentalsStore.AddRental("Sorin6001004299856", "WvA62DM4M7EZM1754", 2);
+            bucharestRentalsStore.AddRental("Enache1880508511799", "MitsubishiEL27525", 1);
+            bucharestRentalsStore.AddRental("Panait2990302026576", "LamboM4CPGNN03836", 3);
+            bucharestRentalsStore.AddRental("Sorin6001004299856", "Opel2ZKZ44VU61304", 5);
+            bucharestRentalsStore.AddRental("Panait2990302026576", "MiniCXB5M7FUT4200", 3);
+            bucharestRentalsStore.AddRental("Sorin6001004299856", "PeugoutST5V0N4537", 1);
+            bucharestRentalsStore.AddRental("Sorin6001004299856", "LamboM4CPGNN03836", 2);
+
+            iasiRentalsStore.DisplayRecord();
+            bucharestRentalsStore.DisplayRecord();
             Console.ReadKey();
         }
     }

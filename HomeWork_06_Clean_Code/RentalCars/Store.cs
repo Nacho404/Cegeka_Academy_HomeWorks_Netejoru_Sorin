@@ -84,7 +84,7 @@ namespace RentalCars
             throw new InvalidOperationException("Price Code not found! Try entering another 'Price Code' or add the price model if it does not exist");
         }
 
-        public string Statement()
+        public void DisplayRecord()
         {
             double totalAmount = 0;
 
@@ -99,7 +99,7 @@ namespace RentalCars
             r += "------------------------------\n";
             r += "Total revenue " + totalAmount + " EUR\n";
 
-            return r;
+            Console.WriteLine(r);
         }
     }
 }
