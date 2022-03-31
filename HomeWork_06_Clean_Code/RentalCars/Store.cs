@@ -5,7 +5,7 @@ namespace RentalCars
 {
     public class Store
     {
-        private readonly List<Rental> Rentals = new List<Rental>(); //lista de inchirieri
+        private readonly List<Rental> Rentals = new List<Rental>();
         public List<Customer> Customers = new List<Customer>();
         public List<Car> Cars = new List<Car>();
 
@@ -15,20 +15,23 @@ namespace RentalCars
         {
             _storeName = storeName;
         }
-
-        public void AddCar(Car car)
+         
+        public void AddCar(PriceCode priceCode, string model, string chassisSeries)
         {
-            Cars.Add(car);
+            Cars.Add(new Car(priceCode, model, chassisSeries));
         }
 
-        public void AddCustomer(Customer customer)
+        public void AddCustomer(string customerName, string cnp)
         {
-            Customers.Add(customer);
+            Customers.Add(new Customer(customerName, cnp));
         }
 
-        public void AddRental(Rental rental)
+        public void AddRental(string cnp, string chassisSeries, int daysRented)
         {
-            Rentals.Add(rental);
+            Customer customer = IdentifyCustomerByCNP(cnp);
+            Car car = IdentifyCarByChassisSeries(chassisSeries);
+
+            Rentals.Add(new Rental(customer, car, daysRented));
         }
 
         public Customer IdentifyCustomerByCNP(string cnp)
@@ -40,7 +43,7 @@ namespace RentalCars
                     return customer;
                 }
             }
-            return null;
+            throw new InvalidOperationException("Customer not found! Try entering another CNP or add the customer if it does not exist");
         }
 
 
@@ -53,7 +56,7 @@ namespace RentalCars
                     return car;
                 }
             }
-            return null;
+            throw new InvalidOperationException("Car not found! Try entering another Chassis Series or add the car if it does not exist");
         }
 
         public string Statement()
