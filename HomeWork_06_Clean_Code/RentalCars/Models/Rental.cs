@@ -13,15 +13,14 @@
             Customer = customer;
             Car = car;
             _daysRented = daysRented;
-            rentalAmount = CalculateRentalAmount();
+            rentalAmount = GetAmountAndSetCustomerPoints();
         }
 
-        private double CalculateRentalAmount()
+        private double GetAmountAndSetCustomerPoints()
         {
             string priceCode = Car.PriceModel._priceCode;
-            double amount = 0;
+            double amount;
 
-            // determines the amount for each line
             amount = Car.PriceModel.DeterminateAmountByPriceCode(_daysRented);
 
             if (Customer.frequentRenterPoints >= 5)
@@ -29,12 +28,7 @@
                 amount = amount * 0.95;
             }
 
-            if (priceCode == "Premium" && _daysRented > 1)
-            {
-                Customer.frequentRenterPoints++;
-            }
-
-            Customer.frequentRenterPoints++;
+            Customer.SetCustomerPoints(priceCode, _daysRented);
 
             return amount;
         }

@@ -13,5 +13,15 @@ namespace RentalCars
             _name = customerName;
             _cnp = cnp;
         }
+
+        public void SetCustomerPoints(string priceCode, int daysRented)
+        {
+            if (priceCode == "Premium" && daysRented > 1)
+            {
+                frequentRenterPoints++;
+            }
+
+            frequentRenterPoints++;
+        }
     }
 }
