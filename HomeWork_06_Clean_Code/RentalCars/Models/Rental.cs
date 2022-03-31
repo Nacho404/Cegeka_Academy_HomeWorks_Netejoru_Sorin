@@ -18,35 +18,18 @@
 
         private double CalculateRentalAmount()
         {
-            double pricePerDay = 20;// why is the price 20 euro for all car categories?
+            string priceCode = Car.PriceModel._priceCode;
             double amount = 0;
 
             // determines the amount for each line
-            switch (Car.PriceModel._priceCode)
-            {
-                case "Regular":
-                    amount += pricePerDay * 2;
-                    if (_daysRented > 2)
-                        amount += (_daysRented - 2) * pricePerDay * 0.75;
-                    break;
-                case "Premium":
-                    amount += _daysRented * pricePerDay * 1.5;
-                    break;
-                case "Mini":
-                    amount += pricePerDay * 3 * 0.75; // here is the bug
-                    if (_daysRented > 3)
-                        amount += (_daysRented - 3) * pricePerDay * 0.5;
-                    break;
-            }
+            amount = Car.PriceModel.DeterminateAmountByPriceCode(_daysRented);
 
             if (Customer.frequentRenterPoints >= 5)
             {
                 amount = amount * 0.95;
             }
 
-
-            if (Car.PriceModel._priceCode == "Premium"
-                    && _daysRented > 1)
+            if (priceCode == "Premium" && _daysRented > 1)
             {
                 Customer.frequentRenterPoints++;
             }
