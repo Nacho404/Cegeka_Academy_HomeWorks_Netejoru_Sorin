@@ -88,18 +88,18 @@ namespace RentalCars
         {
             double totalAmount = 0;
 
-            var r = "Rental Record for " + _storeName + "\n";
-            r += "------------------------------\n";
+            var record = $"Rental Record for {_storeName} \n";
+            record += "------------------------------\n";
 
             foreach (var rental in Rentals)
             {
-                r += rental.Customer._name + "\t" + rental.Car._model + "\t" + rental._daysRented + "d \t" + rental.rentalAmount + " EUR\n";
+                record += $"{rental.Customer._name}\t{rental.Car._model}\t{rental._daysRented}d \t{rental.rentalAmount} EUR\n";
                 totalAmount += rental.rentalAmount;
             }
-            r += "------------------------------\n";
-            r += "Total revenue " + totalAmount + " EUR\n";
+            record += "------------------------------\n";
+            record += $"Total revenue {totalAmount} EUR\n";
 
-            Console.WriteLine(r);
+            Console.WriteLine(record);
         }
     }
 }
