@@ -39,7 +39,7 @@
                     break;
             }
 
-            if (Customer._frequentRenterPoints >= 5)
+            if (Customer.frequentRenterPoints >= 5)
             {
                 amount = amount * 0.95;
             }
@@ -48,10 +48,10 @@
             if (Car._priceCode == PriceCode.Premium
                     && _daysRented > 1)
             {
-                Customer._frequentRenterPoints++;
+                Customer.frequentRenterPoints++;
             }
 
-            Customer._frequentRenterPoints++;
+            Customer.frequentRenterPoints++;
 
             return amount;
         }

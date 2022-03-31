@@ -4,12 +4,14 @@ namespace RentalCars
 {
     public class Customer
     {
-        public string _customerName;
-        public int _frequentRenterPoints = 0;
+        public string _name;
+        public string _cnp;
+        public int frequentRenterPoints = 0;
 
-        public Customer(string customerName)
+        public Customer(string customerName, string cnp)
         {
-            _customerName = customerName;
+            _name = customerName;
+            _cnp = cnp;
         }
     }
 }
