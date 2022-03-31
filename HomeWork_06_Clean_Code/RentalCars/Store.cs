@@ -8,6 +8,7 @@ namespace RentalCars
         private readonly List<Rental> Rentals = new List<Rental>();
         public List<Customer> Customers = new List<Customer>();
         public List<Car> Cars = new List<Car>();
+        public List<PriceModel> Prices = new List<PriceModel>();
 
         private string _storeName;
 
@@ -15,10 +16,16 @@ namespace RentalCars
         {
             _storeName = storeName;
         }
-         
-        public void AddCar(PriceCode priceCode, string model, string chassisSeries)
+        
+        public void AddPriceModel(string priceCode, double pricePerDay)
         {
-            Cars.Add(new Car(priceCode, model, chassisSeries));
+            Prices.Add(new PriceModel(priceCode, pricePerDay));
+        }
+
+        public void AddCar(string priceCode, string model, string chassisSeries)
+        {
+            PriceModel priceModel = IdentifyPriceModel(priceCode);
+            Cars.Add(new Car(priceModel, model, chassisSeries));
         }
 
         public void AddCustomer(string customerName, string cnp)
@@ -46,7 +53,6 @@ namespace RentalCars
             throw new InvalidOperationException("Customer not found! Try entering another CNP or add the customer if it does not exist");
         }
 
-
         public Car IdentifyCarByChassisSeries(string chassisSeries)
         {
             foreach (var car in Cars)
@@ -57,6 +63,18 @@ namespace RentalCars
                 }
             }
             throw new InvalidOperationException("Car not found! Try entering another Chassis Series or add the car if it does not exist");
+        }
+
+        public PriceModel IdentifyPriceModel(string priceCode)
+        {
+            foreach (var price in Prices)
+            {
+                if (price._priceCode == priceCode)
+                {
+                    return price;
+                }
+            }
+            throw new InvalidOperationException("Price Code not found! Try entering another 'Price Code' or add the price model if it does not exist");
         }
 
         public string Statement()

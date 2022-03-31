@@ -22,17 +22,17 @@
             double amount = 0;
 
             // determines the amount for each line
-            switch (Car._priceCode)
+            switch (Car.PriceModel._priceCode)
             {
-                case PriceCode.Regular:
+                case "Regular":
                     amount += pricePerDay * 2;
                     if (_daysRented > 2)
                         amount += (_daysRented - 2) * pricePerDay * 0.75;
                     break;
-                case PriceCode.Premium:
+                case "Premium":
                     amount += _daysRented * pricePerDay * 1.5;
                     break;
-                case PriceCode.Mini:
+                case "Mini":
                     amount += pricePerDay * 3 * 0.75; // here is the bug
                     if (_daysRented > 3)
                         amount += (_daysRented - 3) * pricePerDay * 0.5;
@@ -45,7 +45,7 @@
             }
 
 
-            if (Car._priceCode == PriceCode.Premium
+            if (Car.PriceModel._priceCode == "Premium"
                     && _daysRented > 1)
             {
                 Customer.frequentRenterPoints++;

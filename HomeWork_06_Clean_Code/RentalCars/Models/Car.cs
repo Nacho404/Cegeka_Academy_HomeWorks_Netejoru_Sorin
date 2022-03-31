@@ -2,13 +2,13 @@
 {
     public class Car
     {
-        public PriceCode _priceCode;
+        public PriceModel PriceModel;
         public string _model;
         public string _chassisSeries;
 
-        public Car(PriceCode priceCode, string model, string chassisSeries)
+        public Car(PriceModel priceModel, string model, string chassisSeries)
         {
-            _priceCode = priceCode;
+            PriceModel = priceModel;
             _model = model;
             _chassisSeries = chassisSeries;
         }
