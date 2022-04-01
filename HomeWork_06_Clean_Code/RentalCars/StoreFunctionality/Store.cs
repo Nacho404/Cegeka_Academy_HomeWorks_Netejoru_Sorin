@@ -39,20 +39,11 @@ namespace RentalCars.StoreFunctionality
             Customer customer = IdentificationMethods.IdentifyCustomerByCNP(cnp, Customers);// modificat
             Car car = IdentificationMethods.IdentifyCarByChassisSeries(chassisSeries, Cars);// modificat
 
-            if (customer.frequentRenterPoints >= 3
-                && car.PriceModel._priceCode == "Luxury")
+            if (car.PriceModel._priceCode == "Luxury")
             {
-                Rentals.Add(new Rental(customer, car, daysRented));
+                CheckingIfCanRentLuxuryCarAndAddRental(customer, car, daysRented);
+                ThrowExceptionInsufficientPoints(customer, car);
                 return;
-            }
-
-            if (car.PriceModel._priceCode == "Luxury"
-                && customer.frequentRenterPoints < 3)
-            {
-                throw new InvalidOperationException($"The customer {customer._name} " +
-                    $"have no enough points for rent a luxury car. " +
-                    $"Current points are {customer.frequentRenterPoints}. " +
-                    $"For rent a luxury car he need atleast 3 points");
             }
 
             Rentals.Add(new Rental(customer, car, daysRented));
@@ -69,5 +60,23 @@ namespace RentalCars.StoreFunctionality
             DisplayMethods.DisplayCarPreferences(_storeName, Prices);
         }
 
+        public void CheckingIfCanRentLuxuryCarAndAddRental(Customer customer, Car car, int daysRented)
+        {
+            if (customer.frequentRenterPoints >= 3)
+            {
+                Rentals.Add(new Rental(customer, car, daysRented));
+            }
+        }
+
+        public void ThrowExceptionInsufficientPoints(Customer customer, Car car)
+        {
+            if (customer.frequentRenterPoints < 3)
+            {
+                throw new InvalidOperationException($"The customer {customer._name} " +
+                    $"have no enough points for rent a luxury car. " +
+                    $"Current points are {customer.frequentRenterPoints}. " +
+                    $"For rent a luxury car he need atleast 3 points");
+            }
+        }
     }
 }
