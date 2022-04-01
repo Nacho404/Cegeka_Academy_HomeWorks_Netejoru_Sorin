@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RentalCars.StoreFunctionality
 {
-    public class Identification
+    public class IdentificationMethods
     {
         public static Customer IdentifyCustomerByCNP(string cnp, List<Customer> Customers)
         {
