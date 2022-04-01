@@ -14,6 +14,7 @@
             Car = car;
             _daysRented = daysRented;
             rentalAmount = GetAmountAndSetCustomerPoints();
+            SetTotalPriceOfPriceCodePreference();
         }
 
         private double GetAmountAndSetCustomerPoints()
@@ -31,6 +32,11 @@
             Customer.SetCustomerPoints(priceCode, _daysRented);
 
             return amount;
+        }
+
+        public void SetTotalPriceOfPriceCodePreference()
+        {
+            Car.PriceModel.totalPriceOfPriceCodePreference += rentalAmount;
         }
     }
 }

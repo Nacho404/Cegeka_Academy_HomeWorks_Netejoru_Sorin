@@ -4,6 +4,7 @@
     {
         public string _priceCode;
         public double _pricePerDay;
+        public double totalPriceOfPriceCodePreference = 0;
 
         public PriceModel(string priceCode, double pricePerDay)
         {

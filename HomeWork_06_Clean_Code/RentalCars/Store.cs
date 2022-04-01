@@ -107,5 +107,19 @@ namespace RentalCars
 
             Console.WriteLine(record);
         }
+
+        public void DisplayCarPreferences()
+        {
+            var preferences = $"Car preferences for {_storeName} Store \n";
+            preferences += "/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/\n";
+
+            foreach (var price in Prices)
+            {
+                preferences += $"{price._priceCode}\t{price.totalPriceOfPriceCodePreference} EUR\n";
+            }
+            preferences += "/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/\n";
+
+            Console.WriteLine(preferences);
+        }
     }
 }

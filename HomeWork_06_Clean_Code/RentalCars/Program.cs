@@ -55,7 +55,9 @@ namespace RentalCars
             bucharestRentalsStore.AddCar("Premium", "Mitsubishi", "MitsubishiEL27525");
 
 
-
+            bucharestRentalsStore.AddRental("Panait2990302026576", "MitsubishiEL27525", 4);
+            bucharestRentalsStore.AddRental("Panait2990302026576", "MiniCXB5M7FUT4200", 2);
+            bucharestRentalsStore.AddRental("Panait2990302026576", "WvA62DM4M7EZM1754", 10);
             bucharestRentalsStore.AddRental("Sorin6001004299856", "WvA62DM4M7EZM1754", 2);
             bucharestRentalsStore.AddRental("Enache1880508511799", "MitsubishiEL27525", 1);
             bucharestRentalsStore.AddRental("Panait2990302026576", "LamboM4CPGNN03836", 3);
@@ -65,7 +67,9 @@ namespace RentalCars
             bucharestRentalsStore.AddRental("Sorin6001004299856", "LamboM4CPGNN03836", 2);
 
             iasiRentalsStore.DisplayRecord();
+            iasiRentalsStore.DisplayCarPreferences();
             bucharestRentalsStore.DisplayRecord();
+            bucharestRentalsStore.DisplayCarPreferences();
             Console.ReadKey();
         }
     }
