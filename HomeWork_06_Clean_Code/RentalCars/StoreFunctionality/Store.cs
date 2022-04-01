@@ -30,14 +30,14 @@ namespace RentalCars.StoreFunctionality
 
         public void AddCar(string priceCode, string model, string chassisSeries)
         {
-            PriceModel priceModel = IdentificationMethods.IdentifyPriceModel(priceCode, Prices);// modificat
+            PriceModel priceModel = IdentificationMethods.IdentifyPriceModel(priceCode, Prices);
             Cars.Add(new Car(priceModel, model, chassisSeries));
         }
 
         public void AddRental(string cnp, string chassisSeries, int daysRented)
         {
-            Customer customer = IdentificationMethods.IdentifyCustomerByCNP(cnp, Customers);// modificat
-            Car car = IdentificationMethods.IdentifyCarByChassisSeries(chassisSeries, Cars);// modificat
+            Customer customer = IdentificationMethods.IdentifyCustomerByCNP(cnp, Customers);
+            Car car = IdentificationMethods.IdentifyCarByChassisSeries(chassisSeries, Cars);
 
             if (car.PriceModel._priceCode == "Luxury")
             {
