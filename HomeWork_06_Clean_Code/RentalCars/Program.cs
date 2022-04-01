@@ -65,6 +65,8 @@ namespace RentalCars
             bucharestRentalsStore.AddRental("Panait2990302026576", "MiniCXB5M7FUT4200", 3);
             bucharestRentalsStore.AddRental("Sorin6001004299856", "PeugoutST5V0N4537", 1);
             bucharestRentalsStore.AddRental("Sorin6001004299856", "LamboM4CPGNN03836", 2);
+            bucharestRentalsStore.AddRental("Enache1880508511799", "LamboM4CPGNN03836", 3);
+
 
             iasiRentalsStore.DisplayRecord();
             iasiRentalsStore.DisplayCarPreferences();

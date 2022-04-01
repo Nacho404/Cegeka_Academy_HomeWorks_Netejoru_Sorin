@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCars.StoreFunctionality;
+using System;
 using System.Collections.Generic;
 
 namespace RentalCars
@@ -16,7 +17,7 @@ namespace RentalCars
         {
             _storeName = storeName;
         }
-        
+
         public void AddPriceModel(string priceCode, double pricePerDay)
         {
             Prices.Add(new PriceModel(priceCode, pricePerDay));
@@ -24,7 +25,7 @@ namespace RentalCars
 
         public void AddCar(string priceCode, string model, string chassisSeries)
         {
-            PriceModel priceModel = IdentifyPriceModel(priceCode);
+            PriceModel priceModel = Identification.IdentifyPriceModel(priceCode, Prices);// modificat
             Cars.Add(new Car(priceModel, model, chassisSeries));
         }
 
@@ -35,60 +36,29 @@ namespace RentalCars
 
         public void AddRental(string cnp, string chassisSeries, int daysRented)
         {
-            Customer customer = IdentifyCustomerByCNP(cnp);
-            Car car = IdentifyCarByChassisSeries(chassisSeries);
+            Customer customer = Identification.IdentifyCustomerByCNP(cnp, Customers);// modificat
+            Car car = Identification.IdentifyCarByChassisSeries(chassisSeries, Cars);// modificat
 
-            if (customer.frequentRenterPoints >= 3 
+            if (customer.frequentRenterPoints >= 3
                 && car.PriceModel._priceCode == "Luxury")
             {
                 Rentals.Add(new Rental(customer, car, daysRented));
                 return;
             }
 
-            if(car.PriceModel._priceCode == "Luxury"
+            if (car.PriceModel._priceCode == "Luxury"
                 && customer.frequentRenterPoints < 3)
             {
-                throw new InvalidOperationException($"The customer {customer._name}  have no enough points for rent a luxury car");
+                throw new InvalidOperationException($"The customer {customer._name} " +
+                    $"have no enough points for rent a luxury car. " +
+                    $"Current points are {customer.frequentRenterPoints}. " +
+                    $"For rent a luxury car he need atleast 3 points");
             }
 
             Rentals.Add(new Rental(customer, car, daysRented));
         }
 
-        public Customer IdentifyCustomerByCNP(string cnp)
-        {
-            foreach (var customer in Customers)
-            {
-                if (customer._cnp == cnp)
-                {
-                    return customer;
-                }
-            }
-            throw new InvalidOperationException("Customer not found! Try entering another CNP or add the customer if it does not exist");
-        }
 
-        public Car IdentifyCarByChassisSeries(string chassisSeries)
-        {
-            foreach (var car in Cars)
-            {
-                if (car._chassisSeries == chassisSeries)
-                {
-                    return car;
-                }
-            }
-            throw new InvalidOperationException("Car not found! Try entering another Chassis Series or add the car if it does not exist");
-        }
-
-        public PriceModel IdentifyPriceModel(string priceCode)
-        {
-            foreach (var price in Prices)
-            {
-                if (price._priceCode == priceCode)
-                {
-                    return price;
-                }
-            }
-            throw new InvalidOperationException("Price Code not found! Try entering another 'Price Code' or add the price model if it does not exist");
-        }
 
         public void DisplayRecord()
         {
