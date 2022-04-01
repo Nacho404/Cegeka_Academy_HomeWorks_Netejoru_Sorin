@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RentalCars
+namespace RentalCars.Models
 {
     public class Customer
     {

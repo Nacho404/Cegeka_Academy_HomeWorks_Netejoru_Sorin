@@ -1,8 +1,9 @@
-﻿using RentalCars.StoreFunctionality;
+﻿using RentalCars.Models;
+using RentalCars.StoreFunctionality;
 using System;
 using System.Collections.Generic;
 
-namespace RentalCars
+namespace RentalCars.StoreFunctionality
 {
     public class Store
     {
