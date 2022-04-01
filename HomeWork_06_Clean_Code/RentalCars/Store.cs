@@ -44,7 +44,13 @@ namespace RentalCars
                 Rentals.Add(new Rental(customer, car, daysRented));
                 return;
             }
-           
+
+            if(car.PriceModel._priceCode == "Luxury"
+                && customer.frequentRenterPoints < 3)
+            {
+                throw new InvalidOperationException($"The customer {customer._name}  have no enough points for rent a luxury car");
+            }
+
             Rentals.Add(new Rental(customer, car, daysRented));
         }
 
