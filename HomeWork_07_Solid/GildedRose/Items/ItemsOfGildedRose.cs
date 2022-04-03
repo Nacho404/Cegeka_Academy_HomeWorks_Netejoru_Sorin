@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class AgedBrie : ItemModel// ii creste valoarea(quality) pe zi ce trece
+    public class AgedBrie : ItemModel
     {
         public AgedBrie()
         {
@@ -21,7 +21,7 @@ namespace GildedRoseKata.Items
             }
         }
     }
-    public class Sulfuras : ItemModel // SULFURAS RAMANE LA FEL, NU SE MODIFICA
+    public class Sulfuras : ItemModel
     {
         public Sulfuras()
         {
