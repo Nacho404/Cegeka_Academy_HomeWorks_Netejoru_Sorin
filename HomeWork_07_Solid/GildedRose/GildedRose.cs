@@ -1,13 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using GildedRoseKata.Items;
+using System;
+using System.Collections.Generic;
 
 namespace GildedRoseKata
 {
     public class GildedRose
     {
-        IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+        IList<ItemModel> Items = new List<ItemModel>();
+
+        public void AddItem(ItemModel item)
         {
-            this.Items = Items;
+            Items.Add(item);
+        }
+
+        public void DisplayItems()
+        {
+            int days = 2;
+            //if (args.Length > 0)
+            //{
+            //    days = int.Parse(args[0]) + 1;
+            //}
+
+            for (var i = 0; i < days; i++)
+            {
+                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine("name, sellIn, quality");
+                for (var j = 0; j < Items.Count; j++)
+                {
+                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                }
+                Console.WriteLine("");
+            }
         }
 
         public void UpdateQuality()
