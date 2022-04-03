@@ -6,35 +6,30 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata.Items
 {
-    public class DexterityVest : ItemModel
-    {
-        public DexterityVest()
-        {
-            Name = "+5 Dexterity Vest";
-        }
-    }
-    public class AgedBrie : ItemModel
+    public class AgedBrie : ItemModel// ii creste valoarea(quality) pe zi ce trece
     {
         public AgedBrie()
         {
             Name = "Aged Brie";
 
         }
-    }
-    public class ElixiroftheMongoose : ItemModel
-    {
-        public ElixiroftheMongoose()
+        public override void UpdateQuality()
         {
-            Name = "Elixir of the Mongoose";
-
+            if (Quality < 50)
+            {
+                Quality++;
+            }
         }
     }
-    public class Sulfuras : ItemModel
+    public class Sulfuras : ItemModel // SULFURAS RAMANE LA FEL, NU SE MODIFICA
     {
         public Sulfuras()
         {
             Name = "Sulfuras, Hand of Ragnaros";
-
+        }
+        public override void UpdateQuality()
+        {
+            return;// this item is Legendary -> never has to be sold or decreases in Quality
         }
     }
     public class BackstagePasses : ItemModel
@@ -44,6 +39,31 @@ namespace GildedRoseKata.Items
             Name = "Backstage passes to a TAFKAL80ETC concert";
 
         }
+        public override void UpdateQuality()
+        {
+            if(SellIn < 0)
+            {
+                Quality = 0;
+            }
+
+            if(SellIn >= 0)
+            {
+                if (Quality < 50)
+                {
+                    Quality++;
+                }
+
+                if (Quality < 50 && SellIn <= 10)
+                {
+                    Quality++;
+                }
+
+                if (Quality < 50 && SellIn <= 5)
+                {
+                    Quality++;
+                }
+            }
+        }
     }
     public class ConjuredManaCake : ItemModel
     {
@@ -51,6 +71,41 @@ namespace GildedRoseKata.Items
         {
             Name = "Conjured Mana Cake";
 
+        }
+        public override void UpdateQuality()
+        {
+            if (Quality > 0 && SellIn >= 0)
+            {
+                Quality -= 2;
+            }
+
+            if (Quality > 0 && SellIn < 0)
+            {
+                Quality -= 4;
+            }
+        }
+    }
+    public class DexterityVest : ItemModel
+    {
+        public DexterityVest()
+        {
+            Name = "+5 Dexterity Vest";
+        }
+        public override void UpdateQuality()
+        {
+            base.UpdateQuality();
+        }
+    }
+    public class ElixirOfTheMongoose : ItemModel
+    {
+        public ElixirOfTheMongoose()
+        {
+            Name = "Elixir of the Mongoose";
+
+        }
+        public override void UpdateQuality()
+        {
+            base.UpdateQuality();
         }
     }
 }
