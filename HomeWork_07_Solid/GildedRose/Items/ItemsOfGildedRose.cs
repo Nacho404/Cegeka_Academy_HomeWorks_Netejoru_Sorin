@@ -11,7 +11,6 @@ namespace GildedRoseKata.Items
         public AgedBrie()
         {
             Name = "Aged Brie";
-
         }
         public override void UpdateQuality()
         {
@@ -37,7 +36,6 @@ namespace GildedRoseKata.Items
         public BackstagePasses()
         {
             Name = "Backstage passes to a TAFKAL80ETC concert";
-
         }
         public override void UpdateQuality()
         {
@@ -78,15 +76,21 @@ namespace GildedRoseKata.Items
         public ConjuredManaCake()
         {
             Name = "Conjured Mana Cake";
-
         }
         public override void UpdateQuality()
+        {
+            ChangeQualityWhenSellInIsGreaterOrEqualThen0();
+            ChangeQualityWhenSellInIsLessThen0();
+        }
+        private void ChangeQualityWhenSellInIsGreaterOrEqualThen0()
         {
             if (Quality > 0 && SellIn >= 0)
             {
                 Quality -= 2;
             }
-
+        }
+        private void ChangeQualityWhenSellInIsLessThen0()
+        {
             if (Quality > 0 && SellIn < 0)
             {
                 Quality -= 4;
@@ -109,7 +113,6 @@ namespace GildedRoseKata.Items
         public ElixirOfTheMongoose()
         {
             Name = "Elixir of the Mongoose";
-
         }
         public override void UpdateQuality()
         {
