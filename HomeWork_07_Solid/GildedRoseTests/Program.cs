@@ -19,7 +19,7 @@ namespace GildedRoseTests
             app.AddItem(new Sulfuras {SellIn = -1, Quality = 80 });
 
             app.AddItem(new BackstagePasses {SellIn = 7, Quality = 20 });
-            app.AddItem(new BackstagePasses {SellIn = 10, Quality = 49 });
+            app.AddItem(new BackstagePasses {SellIn = 35, Quality = 44 });
             app.AddItem(new BackstagePasses {SellIn = 2, Quality = 49 });
 
             app.AddItem(new ConjuredManaCake {SellIn = 3, Quality = 30 });

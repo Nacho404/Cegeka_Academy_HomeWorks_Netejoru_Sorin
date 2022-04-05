@@ -55,36 +55,43 @@ namespace GildedRoseKata.Items
         }
         public override void UpdateQuality()
         {
-            ChangeQualityWhenSellInIsLessThan0();
-            ChangeQualityWhenSellInIsGreaterOrEqualThan0();
-        }
-        private void ChangeQualityWhenSellInIsLessThan0()
-        {
-            if (SellIn < 0)
+            if (SellIn <= 0)
             {
                 Quality = 0;
+                return;
             }
+
+            if (CheckIfQualityIs50()) { return; }
+
+            ChangeQualityWhenSellInIsGreaterOrEqualThan0();
         }
 
         private void ChangeQualityWhenSellInIsGreaterOrEqualThan0()
         {
-            if (SellIn >= 0)
+            Quality++;
+
+            if (CheckIfQualityIs50()) { return; }
+
+            if (SellIn < 11)
             {
-                if (Quality < 50)
-                {
-                    Quality++;
-                }
-
-                if (Quality < 50 && SellIn <= 10)
-                {
-                    Quality++;
-                }
-
-                if (Quality < 50 && SellIn <= 5)
-                {
-                    Quality++;
-                }
+                Quality++;
             }
+
+            if (CheckIfQualityIs50()) { return; }
+
+            if (SellIn < 6)
+            {
+                Quality++;
+            }
+        }
+
+        private bool CheckIfQualityIs50()
+        {
+            if (Quality == 50)
+            {
+                return true;
+            }
+            return false;
         }
     }
     public class ConjuredManaCake : ItemModel
