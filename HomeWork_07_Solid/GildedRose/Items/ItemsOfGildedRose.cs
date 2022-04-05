@@ -18,21 +18,17 @@ namespace GildedRoseKata.Items
             {
                 return;
             }
-            ChangeQualityWhenSellInIsGreaterThan0();
-            ChangeQualityWhenSellInIsLessOrEqualThan0();
-        }
-        private void ChangeQualityWhenSellInIsGreaterThan0()
-        {
+
             if (SellIn > 0)
             {
                 Quality++;
+                return;
             }
-        }
-        private void ChangeQualityWhenSellInIsLessOrEqualThan0()
-        {
+
             if (SellIn <= 0)
             {
                 Quality += 2;
+                return;
             }
         }
     }
