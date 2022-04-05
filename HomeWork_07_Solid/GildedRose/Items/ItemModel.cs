@@ -14,21 +14,35 @@
         }
         public virtual void UpdateQuality()
         {
-            ChangeQualityWhenSellInIsLessThan0();
-            ChangeQualityWhenSellInIsGreaterOrEqualThan0();
-        }
-        private void ChangeQualityWhenSellInIsLessThan0()
-        {
-            if (Quality > 0 && SellIn < 0)
+            if(Quality == 0)
             {
-                Quality -= 2;
+                return;
+            }
+
+            ChangeQualityWhenSellInIsLessOrEqualThan0();
+            ChangeQualityWhenSellInIsGreaterThan0();
+        }
+        private void ChangeQualityWhenSellInIsLessOrEqualThan0()
+        {
+            if(SellIn <= 0)
+            {
+                if(Quality == 1)
+                {
+                    Quality = 0;
+                    return;
+                }
+
+                if(Quality > 1)
+                {
+                    Quality -= 2;
+                }
             }
         }
-        private void ChangeQualityWhenSellInIsGreaterOrEqualThan0()
+        private void ChangeQualityWhenSellInIsGreaterThan0()
         {
-            if (Quality > 0 && SellIn >= 0)
+            if (Quality > 0 && SellIn > 0)
             {
-                Quality -= 1; 
+                Quality--; 
             }
         }
     }
