@@ -9,7 +9,7 @@ using Xunit;
 
 namespace GildedRoseTests.Tests
 {
-    public class BackstageTest
+    public class BackstagePassesTest
     {
         [Theory]
         [InlineData(0)]
