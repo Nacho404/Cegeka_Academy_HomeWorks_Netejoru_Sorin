@@ -9,17 +9,17 @@ namespace GildedRoseTests.Tests
     public class AgedBrieTest
     {
         [Theory]
+        [InlineData(0)]
         [InlineData(1)]
-        [InlineData(5)]
-        [InlineData(10)]
-        public void GivenUpdateQualityOnAgedBrie_WhenQualityLessThan50AndSellInGreaterOrEqualThan0_ThenQualityIncreasesBy1(int value)
+        [InlineData(25)]
+        public void GivenUpdateQuality_WhenQualityLessThan50AndSellInGreaterOrEqualThan0_ThenQualityIncreasesBy1(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 0 });
 
             // Act
-            app.DecreasSellInAndUpdateQuality();
+            app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
@@ -27,17 +27,16 @@ namespace GildedRoseTests.Tests
         }
 
         [Theory]
-        [InlineData(0)]
         [InlineData(-1)]
-        [InlineData(-10)]
-        public void GivenUpdateQualityOnAgedBrie_WhenQualityLessThan50AndSellInLessThan0_ThenQualityIncreasesBy2(int value)
+        [InlineData(-7)]
+        public void GivenUpdateQuality_WhenQualityLessThan50AndSellInLessThan0_ThenQualityIncreasesBy2(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 0 });
 
             // Act
-            app.DecreasSellInAndUpdateQuality();
+            app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
@@ -45,17 +44,17 @@ namespace GildedRoseTests.Tests
         }
 
         [Theory]
+        [InlineData(0)]
         [InlineData(1)]
-        [InlineData(5)]
-        [InlineData(10)]
-        public void GivenUpdateQualityOnAgedBrie_WhenQualityIs50AndSellInGreaterOrEqualThan0_ThenQualityDoesNotChange(int value)
+        [InlineData(25)]
+        public void GivenUpdateQuality_WhenQualityIs50AndSellInGreaterOrEqualThan0_ThenQualityDoesNotChange(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
 
             // Act
-            app.DecreasSellInAndUpdateQuality();
+            app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
@@ -63,21 +62,38 @@ namespace GildedRoseTests.Tests
         }
 
         [Theory]
-        [InlineData(0)]
         [InlineData(-1)]
-        [InlineData(-10)]
-        public void GivenUpdateQualityOnAgedBrie_WhenQualityIs50AndSellInLessThan0_ThenQualityDoesNotChange(int value)
+        [InlineData(-7)]
+        public void GivenUpdateQuality_WhenQualityIs50AndSellInLessThan0_ThenQualityDoesNotChange(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
 
             // Act
-            app.DecreasSellInAndUpdateQuality();
+            app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
             Assert.Equal(50, quality);
+        }
+
+        [Theory]
+        [InlineData(10)]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void GivenDecreasSellIn_WhenIsAgedBrie_ThenDecreasSellInBy1(int value)
+        {
+            // Arrange
+            GildedRose app = new GildedRose();
+            app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
+
+            // Act
+            app.Items[0].DecreasSellIn();
+            var sellIn = app.Items[0].SellIn;
+
+            // Assert
+            Assert.Equal((value - 1), sellIn);
         }
     }
 }
