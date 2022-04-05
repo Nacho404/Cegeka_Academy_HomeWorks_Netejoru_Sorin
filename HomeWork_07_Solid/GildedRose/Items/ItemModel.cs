@@ -28,9 +28,8 @@
         {
             if (Quality > 0 && SellIn >= 0)
             {
-                Quality -= 1;
+                Quality -= 1; 
             }
         }
-
     }
 }

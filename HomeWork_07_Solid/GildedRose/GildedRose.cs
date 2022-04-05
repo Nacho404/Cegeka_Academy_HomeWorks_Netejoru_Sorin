@@ -6,7 +6,7 @@ namespace GildedRoseKata
 {
     public class GildedRose
     {
-        private IList<ItemModel> Items = new List<ItemModel>();
+        public IList<ItemModel> Items = new List<ItemModel>();
 
         public void AddItem(ItemModel item)
         {

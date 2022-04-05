@@ -1,5 +1,4 @@
-﻿
-using GildedRoseKata;
+﻿using GildedRoseKata;
 using GildedRoseKata.Items;
 using System;
 using System.Collections.Generic;

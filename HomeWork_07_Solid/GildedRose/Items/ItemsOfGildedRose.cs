@@ -14,9 +14,21 @@ namespace GildedRoseKata.Items
         }
         public override void UpdateQuality()
         {
-            if (Quality < 50)
+            ChangeQualityWhenSellInIsGreaterOrEqualThan0();
+            ChangeQualityWhenSellInIsLessThan0();
+        }
+        private void ChangeQualityWhenSellInIsGreaterOrEqualThan0()
+        {
+            if (Quality < 50 && SellIn >= 0)
             {
                 Quality++;
+            }
+        }
+        private void ChangeQualityWhenSellInIsLessThan0()
+        {
+            if (Quality < 50 && SellIn < 0)
+            {
+                Quality += 2;
             }
         }
     }
