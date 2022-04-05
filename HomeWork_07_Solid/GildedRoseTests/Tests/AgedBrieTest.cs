@@ -9,10 +9,9 @@ namespace GildedRoseTests.Tests
     public class AgedBrieTest
     {
         [Theory]
-        [InlineData(0)]
         [InlineData(1)]
-        [InlineData(25)]
-        public void GivenUpdateQuality_WhenQualityLessThan50AndSellInGreaterOrEqualThan0_ThenQualityIncreasesBy1(int value)
+        [InlineData(9)]
+        public void GivenUpdateQuality_WhenSellInGreaterThan0_ThenQualityIncreasesBy1(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
@@ -27,9 +26,10 @@ namespace GildedRoseTests.Tests
         }
 
         [Theory]
+        [InlineData(0)]
         [InlineData(-1)]
         [InlineData(-7)]
-        public void GivenUpdateQuality_WhenQualityLessThan50AndSellInLessThan0_ThenQualityIncreasesBy2(int value)
+        public void GivenUpdateQuality_WhenSellInIsLessOrEqualThan0_ThenQualityIncreasesBy2(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
@@ -44,38 +44,21 @@ namespace GildedRoseTests.Tests
         }
 
         [Theory]
-        [InlineData(0)]
-        [InlineData(1)]
-        [InlineData(25)]
-        public void GivenUpdateQuality_WhenQualityIs50AndSellInGreaterOrEqualThan0_ThenQualityDoesNotChange(int value)
+        [InlineData(50)]
+        [InlineData(51)]
+        [InlineData(70)]
+        public void GivenUpdateQuality_WhenQualityIsGreaterOrEqualThan50_ThenQualityDoesNotChange(int value)
         {
             // Arrange
             GildedRose app = new GildedRose();
-            app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
+            app.AddItem(new AgedBrie { SellIn = 10, Quality = value });
 
             // Act
             app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(50, quality);
-        }
-
-        [Theory]
-        [InlineData(-1)]
-        [InlineData(-7)]
-        public void GivenUpdateQuality_WhenQualityIs50AndSellInLessThan0_ThenQualityDoesNotChange(int value)
-        {
-            // Arrange
-            GildedRose app = new GildedRose();
-            app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
-
-            // Act
-            app.Items[0].UpdateQuality();
-            var quality = app.Items[0].Quality;
-
-            // Assert
-            Assert.Equal(50, quality);
+            Assert.Equal(value, quality);
         }
 
         [Theory]
