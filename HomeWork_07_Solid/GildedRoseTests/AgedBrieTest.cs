@@ -17,21 +17,13 @@ namespace GildedRoseTests
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 0 });
-            app.DecreasSellInAndUpdateQuality();
 
             // Act
-            var result = ReturnQualityOfAgedBrie(app);
-            static int ReturnQualityOfAgedBrie(GildedRose app)
-            {
-                foreach(var item in app.Items)
-                {
-                    return item.Quality;
-                }
-                throw new InvalidOperationException("Something is wrong in 'foreach' of my 'app.Items'");
-            }
+            app.DecreasSellInAndUpdateQuality();
+            var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(1, result);
+            Assert.Equal(1, quality);
         }
 
         [Theory]
@@ -43,21 +35,13 @@ namespace GildedRoseTests
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 0 });
-            app.DecreasSellInAndUpdateQuality();
 
             // Act
-            var result = ReturnQualityOfAgedBrie(app);
-            static int ReturnQualityOfAgedBrie(GildedRose app)
-            {
-                foreach (var item in app.Items)
-                {
-                    return item.Quality;
-                }
-                throw new InvalidOperationException("Something is wrong in 'foreach' of my 'app.Items'");
-            }
+            app.DecreasSellInAndUpdateQuality();
+            var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(2, result);
+            Assert.Equal(2, quality);
         }
 
         [Theory]
@@ -69,21 +53,13 @@ namespace GildedRoseTests
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
-            app.DecreasSellInAndUpdateQuality();
 
             // Act
-            var result = ReturnQualityOfAgedBrie(app);
-            static int ReturnQualityOfAgedBrie(GildedRose app)
-            {
-                foreach (var item in app.Items)
-                {
-                    return item.Quality;
-                }
-                throw new InvalidOperationException("Something is wrong in 'foreach' of my 'app.Items'");
-            }
+            app.DecreasSellInAndUpdateQuality();
+            var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(50, result);
+            Assert.Equal(50, quality);
         }
 
         [Theory]
@@ -95,21 +71,13 @@ namespace GildedRoseTests
             // Arrange
             GildedRose app = new GildedRose();
             app.AddItem(new AgedBrie { SellIn = value, Quality = 50 });
-            app.DecreasSellInAndUpdateQuality();
 
             // Act
-            var result = ReturnQualityOfAgedBrie(app);
-            static int ReturnQualityOfAgedBrie(GildedRose app)
-            {
-                foreach (var item in app.Items)
-                {
-                    return item.Quality;
-                }
-                throw new InvalidOperationException("Something is wrong in 'foreach' of my 'app.Items'");
-            }
+            app.DecreasSellInAndUpdateQuality();
+            var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(50, result);
+            Assert.Equal(50, quality);
         }
     }
 }
