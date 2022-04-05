@@ -14,7 +14,7 @@ namespace GildedRoseKata.Items
         }
         public override void UpdateQuality()
         {
-            if(Quality >= 50)
+            if(Quality == 50)
             {
                 return;
             }

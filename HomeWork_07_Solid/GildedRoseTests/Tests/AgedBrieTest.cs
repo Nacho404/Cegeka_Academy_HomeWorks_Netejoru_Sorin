@@ -43,22 +43,19 @@ namespace GildedRoseTests.Tests
             Assert.Equal(2, quality);
         }
 
-        [Theory]
-        [InlineData(50)]
-        [InlineData(51)]
-        [InlineData(70)]
-        public void GivenUpdateQuality_WhenQualityIsGreaterOrEqualThan50_ThenQualityDoesNotChange(int value)
+        [Fact]
+        public void GivenUpdateQuality_WhenQualityIs50_ThenQualityDoesNotChange()
         {
             // Arrange
             GildedRose app = new GildedRose();
-            app.AddItem(new AgedBrie { SellIn = 10, Quality = value });
+            app.AddItem(new AgedBrie { SellIn = 10, Quality = 50 });
 
             // Act
             app.Items[0].UpdateQuality();
             var quality = app.Items[0].Quality;
 
             // Assert
-            Assert.Equal(value, quality);
+            Assert.Equal(50, quality);
         }
 
         [Theory]
