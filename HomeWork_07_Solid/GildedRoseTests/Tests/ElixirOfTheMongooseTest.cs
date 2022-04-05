@@ -77,5 +77,23 @@ namespace GildedRoseTests.Tests
             // Assert
             Assert.Equal((qualityValue - 1), quality);
         }
+
+        [Theory]
+        [InlineData(10)]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void GivenDecreasSellIn_WhenIsElixirOfTheMongoose_ThenDecreasSellInBy1(int value)
+        {
+            // Arrange
+            GildedRose app = new GildedRose();
+            app.AddItem(new ElixirOfTheMongoose { SellIn = value, Quality = 50 });
+
+            // Act
+            app.Items[0].DecreasSellIn();
+            var sellIn = app.Items[0].SellIn;
+
+            // Assert
+            Assert.Equal((value - 1), sellIn);
+        }
     }
 }
