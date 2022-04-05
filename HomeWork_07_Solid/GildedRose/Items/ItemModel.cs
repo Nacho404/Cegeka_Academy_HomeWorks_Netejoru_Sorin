@@ -14,17 +14,17 @@
         }
         public virtual void UpdateQuality()
         {
-            ChangeQualityWhenSellInIsLessThen0();
-            ChangeQualityWhenSellInIsGreaterOrEqualThen0();
+            ChangeQualityWhenSellInIsLessThan0();
+            ChangeQualityWhenSellInIsGreaterOrEqualThan0();
         }
-        private void ChangeQualityWhenSellInIsLessThen0()
+        private void ChangeQualityWhenSellInIsLessThan0()
         {
             if (Quality > 0 && SellIn < 0)
             {
                 Quality -= 2;
             }
         }
-        private void ChangeQualityWhenSellInIsGreaterOrEqualThen0()
+        private void ChangeQualityWhenSellInIsGreaterOrEqualThan0()
         {
             if (Quality > 0 && SellIn >= 0)
             {
