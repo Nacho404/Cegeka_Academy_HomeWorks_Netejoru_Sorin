@@ -28,7 +28,6 @@ namespace GildedRoseKata.Items
             if (SellIn <= 0)
             {
                 Quality += 2;
-                return;
             }
         }
     }
@@ -98,21 +97,44 @@ namespace GildedRoseKata.Items
         }
         public override void UpdateQuality()
         {
+            if(Quality == 0)
+            {
+                return;
+            }
+
             ChangeQualityWhenSellInIsGreaterOrEqualThan0();
             ChangeQualityWhenSellInIsLessThan0();
         }
         private void ChangeQualityWhenSellInIsGreaterOrEqualThan0()
         {
-            if (Quality > 0 && SellIn >= 0)
+            if(SellIn > 0)
             {
-                Quality -= 2;
+                if(Quality == 1)
+                {
+                    Quality = 0;
+                    return;
+                }
+
+                if(Quality > 1)
+                {
+                    Quality -= 2;
+                }
             }
         }
         private void ChangeQualityWhenSellInIsLessThan0()
         {
-            if (Quality > 0 && SellIn < 0)
+            if(SellIn <= 0)
             {
-                Quality -= 4;
+                if(Quality < 4)
+                {
+                    Quality = 0;
+                    return;
+                }
+
+                if(Quality > 3)
+                {
+                    Quality -= 4;
+                }
             }
         }
     }
