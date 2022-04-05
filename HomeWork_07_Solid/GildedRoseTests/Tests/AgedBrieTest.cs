@@ -4,7 +4,7 @@ using GildedRoseKata;
 using GildedRoseKata.Items;
 using System;
 
-namespace GildedRoseTests
+namespace GildedRoseTests.Tests
 {
     public class AgedBrieTest
     {
